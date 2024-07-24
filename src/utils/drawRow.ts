@@ -24,7 +24,7 @@ export const drawRow = (config: DrawRowConfig) => {
   ctx.setLineDash([]);
 
   if (label && font && textYPos) {
-    ctx.fillStyle = defaultFillStyle;
+    ctx.fillStyle = fillStyle === "#EAF3FC" ? fillStyle : defaultFillStyle;
     ctx.fillRect(x, y, width, height);
     ctx.strokeRect(x + 0.5, y + 0.5, width, height);
 
@@ -32,8 +32,8 @@ export const drawRow = (config: DrawRowConfig) => {
 
     const textXPos = x + width / 2 - ctx.measureText(label).width / 2;
     ctx.textBaseline = "middle";
-    ctx.fillStyle = theme.colors.grey600;
-    ctx.fillText(label, textXPos, textYPos);
+    ctx.fillStyle = theme.colors.black;
+    ctx.fillText(label, textXPos, textYPos + 10);
   }
   if (isBottomRow && fillStyle && topText && bottomText) {
     ctx.fillStyle = fillStyle;

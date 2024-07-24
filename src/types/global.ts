@@ -1,11 +1,11 @@
-export const allZoomLevel = [0, 1] as const;
+export const allZoomLevel = [0, 1, 2] as const;
 
 export type FilterButtonState = -1 | 0 | 1;
 
 type ZoomLevelTuple = typeof allZoomLevel;
 
 export type ZoomLevel = ZoomLevelTuple[number];
-export type LangCodes = "en" | "pl";
+export type LangCodes = "en" | "it";
 export type Config = {
   zoom: ZoomLevel;
   /**
@@ -16,7 +16,7 @@ export type Config = {
    */
   filterButtonState?: number;
   /**
-   * Language code: "en" | "pl"
+   * Language code: "en" | "it"
    */
   lang?: LangCodes;
   isFiltersButtonVisible?: boolean;
@@ -90,19 +90,22 @@ export type SchedulerProjectData = {
 
 export type Day = {
   dayName: string;
+  minutes: number;
+  hours: number;
   dayOfMonth: number;
   weekOfYear: number;
   month: number;
   monthName: string;
   isBusinessDay: boolean;
   isCurrentDay: boolean;
+  isCurrentHour: boolean;
   year: number;
 };
 
 export type TextAndBoxStyleConfig = {
-  isCurrent: boolean;
+  isCurrent?: boolean;
   isBusinessDay?: boolean;
-  variant?: "yearView" | "bottomRow";
+  variant?: "yearView" | "bottomRow" | "hourView";
 };
 
 type BottomRowText = {

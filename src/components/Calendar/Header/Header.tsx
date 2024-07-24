@@ -46,7 +46,7 @@ const Header: FC<HeaderProps> = ({ zoom, topBarWidth }) => {
 
   return (
     <StyledOuterWrapper>
-      <Topbar width={topBarWidth} />
+      {/*<Topbar width={topBarWidth} />*/}
       <StyledWrapper id={canvasHeaderWrapperId}>
         <StyledCanvas ref={canvasRef} />
       </StyledWrapper>

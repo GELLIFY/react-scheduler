@@ -1,17 +1,20 @@
 import { prefixId, theme } from "./styles";
 
 export const dayWidth = 50;
+export const minutesWidth = 60;
 export const headerMonthHeight = 24;
 export const headerWeekHeight = 16;
 export const headerDayHeight = 40;
-export const headerHeight = headerDayHeight + headerWeekHeight + headerMonthHeight;
+export const headerHoursHeight = 56;
+export const headerMinutesHeight = 70;
+export const headerHeight = 90;
 export const weekWidth = 84;
 export const boxHeight = 56;
 export const leftColumnWidth = 196;
 export const singleDayWidth = 12;
 export const weeksInYear = 52;
 export const navHeight = 44;
-export const daysFillStyle = theme.colors.blue100;
+export const daysFillStyle = theme.colors.white;
 export const fonts = {
   topRow: "600 14px Inter",
   middleRow: "400 10px Inter",

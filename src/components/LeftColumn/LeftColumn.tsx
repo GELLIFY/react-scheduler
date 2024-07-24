@@ -5,6 +5,7 @@ import PaginationButton from "../PaginationButton/PaginationButton";
 import { StyledInput, StyledInputWrapper, StyledLeftColumnHeader, StyledWrapper } from "./styles";
 import { LeftColumnProps } from "./types";
 import LeftColumnItem from "./LeftColumnItem/LeftColumnItem";
+import "@fontsource/josefin-sans";
 
 const LeftColumn: FC<LeftColumnProps> = ({
   data,
@@ -13,6 +14,7 @@ const LeftColumn: FC<LeftColumnProps> = ({
   onLoadPrevious,
   pageNum,
   pagesAmount,
+  titleAboveLeft,
   searchInputValue,
   onSearchInputChange,
   onItemClick
@@ -25,24 +27,40 @@ const LeftColumn: FC<LeftColumnProps> = ({
   return (
     <StyledWrapper>
       <StyledLeftColumnHeader>
-        <StyledInputWrapper isFocused={isInputFocused}>
-          <StyledInput
-            placeholder={search}
-            value={searchInputValue}
-            onChange={onSearchInputChange}
-            onFocus={toggleFocus}
-            onBlur={toggleFocus}
-          />
-          <Icon iconName="search" />
-        </StyledInputWrapper>
-        <PaginationButton
-          intent="previous"
-          isVisible={pageNum !== 0}
-          onClick={onLoadPrevious}
-          icon={<Icon iconName="arrowUp" width="16" height="16" />}
-          pageNum={pageNum}
-          pagesAmount={pagesAmount}
-        />
+        <div
+          style={{
+            fontFamily: "Josefin Sans",
+            fontSize: "20px",
+            paddingTop: "10px",
+            flex: "auto",
+            textAlign: "center",
+            fontWeight: "bold"
+          }}>
+          {titleAboveLeft ? titleAboveLeft : ""}
+        </div>
+        <div
+          style={{
+            borderTop: `1px solid #D2D2D2`
+          }}>
+          <StyledInputWrapper isFocused={isInputFocused}>
+            <StyledInput
+              placeholder={search}
+              value={searchInputValue}
+              onChange={onSearchInputChange}
+              onFocus={toggleFocus}
+              onBlur={toggleFocus}
+            />
+            <Icon iconName="search" />
+          </StyledInputWrapper>
+        </div>
+        {/*<PaginationButton*/}
+        {/*  intent="previous"*/}
+        {/*  isVisible={pageNum !== 0}*/}
+        {/*  onClick={onLoadPrevious}*/}
+        {/*  icon={<Icon iconName="arrowUp" width="16" height="16" />}*/}
+        {/*  pageNum={pageNum}*/}
+        {/*  pagesAmount={pagesAmount}*/}
+        {/*/>*/}
       </StyledLeftColumnHeader>
       {data.map((item, index) => (
         <LeftColumnItem
@@ -53,14 +71,14 @@ const LeftColumn: FC<LeftColumnProps> = ({
           onItemClick={onItemClick}
         />
       ))}
-      <PaginationButton
-        intent="next"
-        isVisible={pageNum !== pagesAmount - 1}
-        onClick={onLoadNext}
-        icon={<Icon iconName="arrowDown" width="16" height="16" />}
-        pageNum={pageNum}
-        pagesAmount={pagesAmount}
-      />
+      {/*<PaginationButton*/}
+      {/*  intent="next"*/}
+      {/*  isVisible={pageNum !== pagesAmount - 1}*/}
+      {/*  onClick={onLoadNext}*/}
+      {/*  icon={<Icon iconName="arrowDown" width="16" height="16" />}*/}
+      {/*  pageNum={pageNum}*/}
+      {/*  pagesAmount={pagesAmount}*/}
+      {/*/>*/}
     </StyledWrapper>
   );
 };

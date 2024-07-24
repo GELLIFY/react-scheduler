@@ -2,7 +2,7 @@
   <img src="logo.svg" style="height: 60px" alt="@bitnoise/react-scheduler">
   <hr />
   <p align="center">
-    ✨ <a href="https://scheduler.bitnoise.pl/">https://scheduler.bitnoise.pl/</a> ✨
+    ✨ <a href="https://scheduler.bitnoise.pl/">https://scheduler.bitnoise.it/</a> ✨
     <br/>
     Open sourced, typescript oriented, light-weight, and ultra fast React Component for creating gantt charts.
   </p>
@@ -143,7 +143,7 @@ const mockedSchedulerData: SchedulerData = [
 | zoom                                 | `0` or `1`   | 0       | `0` - display grid divided into weeks `1` - display grid divided into days                                                                                             |
 | filterButtonState                    | `number`     | 0       | `< 0` - hides filter button, `0` - state for when filters were not set, `> 0` - state for when some filters were set (allows to also handle `onClearFilterData` event) |
 | maxRecordsPerPage                    | `number`     | 50      | number of items from `SchedulerData` visible per page                                                                                                                  |
-| lang                                 | `en` or `pl` | en      | scheduler's language                                                                                                                                                   |
+| lang                                 | `en` or `it` | en      | scheduler's language                                                                                                                                                   |
 | includeTakenHoursOnWeekendsInDayView | `boolean`    | `false` | show weekends as taken when given resource is longer than a week                                                                                                       |
 
 ##### Scheduler Data

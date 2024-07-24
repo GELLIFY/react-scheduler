@@ -16,6 +16,8 @@ export type SchedulerProps = {
   onFilterData?: () => void;
   onClearFilterData?: () => void;
   onItemClick?: (data: SchedulerItemClickData) => void;
+  isFullscreen?: boolean;
+  titleAboveLeft?: string;
 };
 
 export type StyledOutsideWrapperProps = {

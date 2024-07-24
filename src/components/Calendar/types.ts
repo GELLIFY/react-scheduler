@@ -3,6 +3,7 @@ import { SchedulerData, SchedulerItemClickData, SchedulerProjectData } from "@/t
 export type CalendarProps = {
   data: SchedulerData;
   topBarWidth: number;
+  titleAboveLeft?: string;
   onTileClick?: (data: SchedulerProjectData) => void;
   onItemClick?: (data: SchedulerItemClickData) => void;
 };

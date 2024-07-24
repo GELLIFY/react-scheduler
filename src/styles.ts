@@ -68,6 +68,6 @@ white-space: nowrap;
 export const StyledSchedulerFrame = styled.div`
   margin: 10rem 10rem;
   position: relative;
-  width: 40vw;
-  height: 40vh;
+  width: 80vw;
+  height: 80vh;
 `;
