@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { leftColumnWidth } from "@/constants";
+import {boxHeight, leftColumnWidth} from "@/constants";
 import { StyledInputWrapperProps } from "./types";
+import {StyledLeftColumnItemWrapperProps} from "@/components/LeftColumn/LeftColumnItem/types";
 
 export const StyledWrapper = styled.div`
   min-width: ${leftColumnWidth + "px"};
@@ -17,7 +18,7 @@ export const StyledLeftColumnHeader = styled.div`
   padding-bottom: 4px;
   position: sticky;
   top: 0;
-  height: 124px;
+  height: 90px;
   display: flex;
   flex-direction: column;
   justify-content: end;
@@ -40,6 +41,9 @@ export const StyledInput = styled.input`
 
 export const StyledInputWrapper = styled.div<StyledInputWrapperProps>`
   margin-left: 10px;
+  margin-bottom: 4px;
+  margin-top: 5px;
+  border-top: 1px solid ${({ theme }) => theme.colors.grey400};
   height: 36px;
   width: calc(100% - 20px); //20px = 10px margin each side
   background-color: ${({ theme }) => theme.colors.blue100};
@@ -57,3 +61,18 @@ export const StyledInputWrapper = styled.div<StyledInputWrapperProps>`
     width: 24px;
   }
 `;
+
+// export const StyledWrapper = styled.div<StyledLeftColumnItemWrapperProps>`
+//   display: flex;
+//   align-items: ${({ rows }) => (rows > 1 ? "start" : "center")};
+//   padding: 0.813rem 0 0.813rem 1rem;
+//   width: 100%;
+//   min-height: ${boxHeight}px;
+//   height: calc(${boxHeight}px * ${({ rows }) => rows});
+//   border-top: 1px solid ${({ theme }) => theme.colors.grey400};
+//   transition: 0.5s ease;
+//   cursor: ${({ clickable }) => (clickable ? "pointer" : "auto")};
+//   &:hover {
+//     background-color: ${({ theme }) => theme.colors.blue200};
+//   }
+// `;

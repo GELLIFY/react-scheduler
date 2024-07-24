@@ -4,7 +4,6 @@ import { createMockData } from "./mock/appMock";
 import { ParsedDatesRange } from "./utils/getDatesRange";
 import { ConfigFormValues, SchedulerProjectData } from "./types/global";
 import ConfigPanel from "./components/ConfigPanel";
-import { StyledSchedulerFrame } from "./styles";
 import { Scheduler } from ".";
 
 function App() {
@@ -14,7 +13,7 @@ function App() {
     yearsCovered: 0,
     startDate: undefined,
     maxRecordsPerPage: 50,
-    isFullscreen: true
+    isFullscreen: false
   });
 
   const { peopleCount, projectsPerYear, yearsCovered, isFullscreen, maxRecordsPerPage } = values;
@@ -58,30 +57,18 @@ function App() {
   return (
     <>
       <ConfigPanel values={values} onSubmit={setValues} />
-      {isFullscreen ? (
-        <Scheduler
-          startDate={values.startDate ? new Date(values.startDate).toISOString() : undefined}
-          onRangeChange={handleRangeChange}
-          data={filteredData}
-          isLoading={false}
-          onTileClick={handleTileClick}
-          onFilterData={handleFilterData}
-          config={{ zoom: 0, maxRecordsPerPage: maxRecordsPerPage }}
-          onItemClick={(data) => console.log("clicked: ", data)}
-        />
-      ) : (
-        <StyledSchedulerFrame>
-          <Scheduler
-            startDate={values.startDate ? new Date(values.startDate).toISOString() : undefined}
-            onRangeChange={handleRangeChange}
-            isLoading={false}
-            data={filteredData}
-            onTileClick={handleTileClick}
-            onFilterData={handleFilterData}
-            onItemClick={(data) => console.log("clicked: ", data)}
-          />
-        </StyledSchedulerFrame>
-      )}
+      <Scheduler
+        startDate={values.startDate ? new Date(values.startDate).toISOString() : undefined}
+        onRangeChange={handleRangeChange}
+        data={filteredData}
+        isLoading={false}
+        onTileClick={handleTileClick}
+        onFilterData={handleFilterData}
+        config={{ zoom: 2, maxRecordsPerPage: maxRecordsPerPage, lang: "it" }}
+        onItemClick={(data) => console.log("clicked: ", data)}
+        isFullscreen={isFullscreen}
+        titleAboveLeft={"Addetti"}
+      />
     </>
   );
 }

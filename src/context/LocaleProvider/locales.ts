@@ -1,5 +1,5 @@
 import { en } from "@/locales/en";
-import { pl } from "@/locales/pl";
+import { it } from "@/locales/it";
 import { LocaleType } from "./types";
 
 export const locales: LocaleType[] = [
@@ -10,9 +10,9 @@ export const locales: LocaleType[] = [
     translateCode: "en-GB"
   },
   {
-    id: "pl",
-    name: "POLISH",
-    lang: pl,
-    translateCode: "pl-PL"
+    id: "it",
+    name: "ITALIAN",
+    lang: it,
+    translateCode: "itit-IT"
   }
 ];

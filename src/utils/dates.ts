@@ -17,12 +17,15 @@ export const getDaysInMonths = (date: Day, iterator: number) =>
 export const parseDay = (data: dayjs.Dayjs): Day => {
   return {
     dayName: data.format("ddd"),
+    minutes: data.minute(),
+    hours: data.hour(),
     dayOfMonth: data.date(),
     weekOfYear: data.isoWeek(),
     month: data.month(),
     monthName: data.format("MMMM"),
     isBusinessDay: getIsBusinessDay(data),
     isCurrentDay: data.isSame(dayjs(), "day"),
+    isCurrentHour: data.isSame(dayjs(), "hours"),
     year: parseInt(data.format("YYYY"))
   };
 };

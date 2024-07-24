@@ -4,10 +4,11 @@ import dayjs from "dayjs";
 import { Calendar } from "@/components";
 import CalendarProvider from "@/context/CalendarProvider";
 import LocaleProvider from "@/context/LocaleProvider";
-import { GlobalStyle, theme } from "@/styles";
+import { GlobalStyle, theme, StyledSchedulerFrame } from "@/styles";
 import { Config } from "@/types/global";
 import { outsideWrapperId } from "@/constants";
 import { SchedulerProps } from "./types";
+
 import { StyledInnerWrapper, StyledOutsideWrapper } from "./styles";
 
 const Scheduler = ({
@@ -19,7 +20,9 @@ const Scheduler = ({
   onFilterData,
   onClearFilterData,
   onItemClick,
-  isLoading
+  isLoading,
+  isFullscreen,
+  titleAboveLeft
 }: SchedulerProps) => {
   const appConfig: Config = useMemo(
     () => ({
@@ -50,7 +53,7 @@ const Scheduler = ({
   }, []);
 
   if (!outsideWrapperRef.current) null;
-  return (
+  return isFullscreen ? (
     <>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
@@ -70,6 +73,7 @@ const Scheduler = ({
               <StyledInnerWrapper>
                 <Calendar
                   data={data}
+                  titleAboveLeft={titleAboveLeft}
                   onTileClick={onTileClick}
                   topBarWidth={topBarWidth ?? 0}
                   onItemClick={onItemClick}
@@ -80,6 +84,40 @@ const Scheduler = ({
         </LocaleProvider>
       </ThemeProvider>
     </>
+  ) : (
+    // <StyledSchedulerFrame>
+    <div style={{ margin: "10rem 10rem", position: "relative", width: "80vw", height: "80vh" }}>
+      <>
+        <GlobalStyle />
+        <ThemeProvider theme={theme}>
+          <LocaleProvider lang={appConfig.lang}>
+            <CalendarProvider
+              data={data}
+              isLoading={!!isLoading}
+              config={appConfig}
+              onRangeChange={onRangeChange}
+              defaultStartDate={defaultStartDate}
+              onFilterData={onFilterData}
+              onClearFilterData={onClearFilterData}>
+              <StyledOutsideWrapper
+                showScroll={!!data.length}
+                id={outsideWrapperId}
+                ref={outsideWrapperRef}>
+                <StyledInnerWrapper>
+                  <Calendar
+                    data={data}
+                    titleAboveLeft={titleAboveLeft}
+                    onTileClick={onTileClick}
+                    topBarWidth={topBarWidth ?? 0}
+                    onItemClick={onItemClick}
+                  />
+                </StyledInnerWrapper>
+              </StyledOutsideWrapper>
+            </CalendarProvider>
+          </LocaleProvider>
+        </ThemeProvider>
+      </>
+    </div>
   );
 };
 

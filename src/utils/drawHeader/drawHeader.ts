@@ -1,4 +1,6 @@
 import { Day } from "@/types/global";
+import { drawHoursOnTop } from "@/utils/drawHeader/drawRows/drawHoursOnTop";
+import { drawMinutesOnBottom } from "@/utils/drawHeader/drawRows/drawMinutesOnBottom";
 import { drawDaysOnBottom } from "./drawRows/drawDaysOnBottom";
 import { drawMonthsInMiddle } from "./drawRows/drawMonthsInMiddle";
 import { drawMonthsOnTop } from "./drawRows/drawMonthsOnTop";
@@ -18,6 +20,9 @@ export const drawHeader = (
     drawYearsOnTop(ctx, startDate, dayOfYear);
     drawMonthsInMiddle(ctx, cols, startDate);
     drawWeeksOnBottom(ctx, cols, startDate, weekLabel);
+  } else if (zoom === 2) {
+    drawHoursOnTop(ctx, startDate);
+    drawMinutesOnBottom(ctx, cols, startDate);
   } else {
     drawMonthsOnTop(ctx, startDate);
     drawWeeksInMiddle(ctx, startDate, weekLabel);
