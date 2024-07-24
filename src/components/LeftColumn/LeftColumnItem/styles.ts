@@ -9,7 +9,7 @@ export const StyledWrapper = styled.div<StyledLeftColumnItemWrapperProps>`
   padding: 0.813rem 0 0.813rem 1rem;
   width: 100%;
   min-height: ${boxHeight}px;
-  height: calc(${boxHeight}px * ${({ rows }) => rows});
+  height: calc(${boxHeight}px * ${1});
   border-top: 1px solid ${({ theme }) => theme.colors.grey400};
   transition: 0.5s ease;
   cursor: ${({ clickable }) => (clickable ? "pointer" : "auto")};
@@ -43,10 +43,10 @@ export const StyledTextWrapper = styled.div`
 `;
 export const StyledText = styled.p<StyledTextProps>`
   margin: 0;
-  padding: 0;
-  font-size: ${({ isMain }) => (isMain ? 0.75 + "rem" : 0.625 + "rem")};
+  padding: 1px;
+  font-size: 14px;
   letter-spacing: ${({ isMain }) => (isMain ? 1 + "px" : 0.5 + "px")};
-  line-height: ${({ isMain }) => (isMain ? 1.125 + "rem" : 0.75 + "rem")};
+  line-height: ${({ isMain }) => (isMain ? 22 + "px" : 22 + "px")};
   color: ${({ isMain }) => (isMain ? theme.colors.black : theme.colors.grey600)};
   text-overflow: ellipsis;
   display: inline-block;
@@ -54,4 +54,6 @@ export const StyledText = styled.p<StyledTextProps>`
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
+  font-family: "new_serif", serif !important;
+  font-weight: ${({ isMain }) => (isMain ? 700 : 400)};
 `;

@@ -41,9 +41,9 @@ export type Theme = {
 export const theme: DefaultTheme = {
   navHeight: "44px",
   colors: {
-    black: "#1C222F",
+    black: "#212B36",
     grey400: "#D2D2D2",
-    grey600: "#777777",
+    grey600: "#637381",
     blue900: "#3B3C5F",
     blue100: "#F8F8FD",
     blue300: "#C9E5FF",
