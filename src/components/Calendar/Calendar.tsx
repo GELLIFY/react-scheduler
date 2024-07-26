@@ -27,9 +27,9 @@ export const Calendar: FC<CalendarProps> = ({
   onItemClick,
   topBarWidth
 }) => {
-  const [tooltipData, setTooltipData] = useState<TooltipData>(initialTooltipData);
+  const [, /*tooltipData*/ setTooltipData] = useState<TooltipData>(initialTooltipData);
   const [filteredData, setFilteredData] = useState(data);
-  const [isVisible, setIsVisible] = useState(false);
+  const [, /*isVisible*/ setIsVisible] = useState(false);
   const [searchPhrase, setSearchPhrase] = useState("");
   const {
     zoom,
@@ -153,9 +153,10 @@ export const Calendar: FC<CalendarProps> = ({
         ) : (
           <EmptyBox />
         )}
-        {isVisible && tooltipData?.resourceIndex > -1 && (
-          <Tooltip tooltipData={tooltipData} zoom={zoom} />
-        )}
+        {/*TODO ADD A CUSTOM TOOLTIP COMPONENT*/}
+        {/*{isVisible && tooltipData?.resourceIndex > -1 && (*/}
+        {/*  <Tooltip tooltipData={tooltipData} zoom={zoom} />*/}
+        {/*)}*/}
       </StyledInnerWrapper>
     </StyledOuterWrapper>
   );

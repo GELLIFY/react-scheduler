@@ -8,17 +8,16 @@ const Tiles: FC<TilesProps> = ({ data, zoom, onTileClick }) => {
     return data
       .map((person, personIndex) => {
         if (personIndex > 0) {
-          rows += Math.max(data[personIndex - 1].data.length, 1);
+          rows += (data[personIndex - 1].data.length, 1);
         }
-        return person.data.map((projectsPerRow, rowIndex) =>
+        return person.data.map((projectsPerRow /*rowIndex*/) =>
           projectsPerRow.map((project) => (
             <Tile
               key={project.id}
-              row={rowIndex + rows}
+              row={rows}
               data={project}
               zoom={zoom}
-              onTileClick={onTileClick}
-            />
+              onTileClick={onTileClick}></Tile>
           ))
         );
       })

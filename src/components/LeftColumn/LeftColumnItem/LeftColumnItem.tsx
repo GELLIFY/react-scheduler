@@ -12,7 +12,9 @@ const LeftColumnItem: FC<LeftColumnItemProps> = ({ id, item, rows, onItemClick }
       <StyledInnerWrapper>
         <StyledTextWrapper>
           <StyledText isMain>{item.title}</StyledText>
-          <StyledText isMain={false}>{item.subtitle}</StyledText>
+          <StyledText isMain={false}>
+            {"8:00 - 12:00" /*TODO CHANGE DATE RANGE WITH TILE LENHGT */}
+          </StyledText>
         </StyledTextWrapper>
       </StyledInnerWrapper>
     </StyledWrapper>
