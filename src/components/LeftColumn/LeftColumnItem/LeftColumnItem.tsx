@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { StyledInnerWrapper, StyledText, StyledTextWrapper, StyledWrapper } from "./styles";
 import { LeftColumnItemProps } from "./types";
+import { upperFirst } from "@mantine/hooks";
 
 const LeftColumnItem: FC<LeftColumnItemProps> = ({ id, item, rows, onItemClick }) => {
   return (
@@ -11,7 +12,7 @@ const LeftColumnItem: FC<LeftColumnItemProps> = ({ id, item, rows, onItemClick }
       onClick={() => onItemClick?.({ id, label: item })}>
       <StyledInnerWrapper>
         <StyledTextWrapper>
-          <StyledText isMain>{item.title}</StyledText>
+          <StyledText isMain>{upperFirst(item.title)}</StyledText>
           <StyledText isMain={false}>
             {"8:00 - 12:00" /*TODO CHANGE DATE RANGE WITH TILE LENHGT */}
           </StyledText>
