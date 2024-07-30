@@ -90,15 +90,15 @@ export type SchedulerProjectData = {
 
 export type Day = {
   dayName: string;
-  minutes: number;
-  hours: number;
+  minutes?: number;
+  hours?: number;
   dayOfMonth: number;
   weekOfYear: number;
   month: number;
   monthName: string;
   isBusinessDay: boolean;
   isCurrentDay: boolean;
-  isCurrentHour: boolean;
+  isCurrentHour?: boolean;
   year: number;
 };
 
