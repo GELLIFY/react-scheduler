@@ -18,6 +18,7 @@ export type SchedulerProps = {
   onItemClick?: (data: SchedulerItemClickData) => void;
   isFullscreen?: boolean;
   titleAboveLeft?: string;
+  isMultipleRow?: boolean;
 };
 
 export type StyledOutsideWrapperProps = {

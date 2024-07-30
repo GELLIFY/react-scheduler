@@ -143,6 +143,7 @@ export type ConfigFormValues = {
   maxRecordsPerPage: number;
   isFullscreen: boolean;
   startDate?: string;
+  isMultipleRow?: boolean;
 };
 
 export type Coords = {

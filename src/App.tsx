@@ -13,10 +13,18 @@ function App() {
     yearsCovered: 0,
     startDate: undefined,
     maxRecordsPerPage: 50,
-    isFullscreen: false
+    isFullscreen: false,
+    isMultipleRow: false
   });
 
-  const { peopleCount, projectsPerYear, yearsCovered, isFullscreen, maxRecordsPerPage } = values;
+  const {
+    peopleCount,
+    projectsPerYear,
+    yearsCovered,
+    isFullscreen,
+    maxRecordsPerPage,
+    isMultipleRow
+  } = values;
 
   const mocked = useMemo(
     () => createMockData(+peopleCount, +yearsCovered, +projectsPerYear),
@@ -64,10 +72,11 @@ function App() {
         isLoading={false}
         onTileClick={handleTileClick}
         onFilterData={handleFilterData}
-        config={{ zoom: 2, maxRecordsPerPage: maxRecordsPerPage, lang: "it" }}
+        config={{ zoom: 1, maxRecordsPerPage: maxRecordsPerPage, lang: "it" }}
         onItemClick={(data) => console.log("clicked: ", data)}
         isFullscreen={isFullscreen}
         titleAboveLeft={"Addetti"}
+        isMultipleRow={isMultipleRow}
       />
     </>
   );

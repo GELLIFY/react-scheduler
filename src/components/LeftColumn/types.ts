@@ -11,6 +11,7 @@ export type LeftColumnProps = {
   onSearchInputChange: React.ChangeEventHandler<HTMLInputElement>;
   onItemClick?: (data: SchedulerItemClickData) => void;
   titleAboveLeft?: string;
+  isMultipleRow?: boolean;
 };
 
 export type StyledInputWrapperProps = {

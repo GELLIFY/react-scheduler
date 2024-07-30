@@ -9,7 +9,8 @@ export const StyledWrapper = styled.div<StyledLeftColumnItemWrapperProps>`
   padding: 0.813rem 0 0.813rem 1rem;
   width: 100%;
   min-height: ${boxHeight}px;
-  height: calc(${boxHeight}px * ${1});
+  height: ${({ isMultipleRow, rows }) =>
+    isMultipleRow ? `calc(${boxHeight}px * ${rows})` : `calc(${boxHeight}px * ${1})`};
   border-top: 1px solid ${({ theme }) => theme.colors.grey400};
   transition: 0.5s ease;
   cursor: ${({ clickable }) => (clickable ? "pointer" : "auto")};

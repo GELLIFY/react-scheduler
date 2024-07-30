@@ -3,13 +3,20 @@ import { StyledInnerWrapper, StyledText, StyledTextWrapper, StyledWrapper } from
 import { LeftColumnItemProps } from "./types";
 import { upperFirst } from "@mantine/hooks";
 
-const LeftColumnItem: FC<LeftColumnItemProps> = ({ id, item, rows, onItemClick }) => {
+const LeftColumnItem: FC<LeftColumnItemProps> = ({
+  id,
+  item,
+  rows,
+  onItemClick,
+  isMultipleRow
+}) => {
   return (
     <StyledWrapper
       title={item.title + " | " + item.subtitle}
       clickable={typeof onItemClick === "function"}
       rows={rows}
-      onClick={() => onItemClick?.({ id, label: item })}>
+      onClick={() => onItemClick?.({ id, label: item })}
+      isMultipleRow={isMultipleRow}>
       <StyledInnerWrapper>
         <StyledTextWrapper>
           <StyledText isMain>{upperFirst(item.title)}</StyledText>

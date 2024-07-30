@@ -1,5 +1,4 @@
 import { prefixId, theme } from "./styles";
-
 export const dayWidth = 50;
 export const minutesWidth = 60;
 export const headerMonthHeight = 24;
@@ -38,7 +37,8 @@ export const formFieldsIds = {
   yearsCovered: "yearsCovered",
   startDate: "startDate",
   maxRecordsPerPage: "maxRecordsPerPage",
-  isFullscreen: "isFullscreen"
+  isFullscreen: "isFullscreen",
+  isMultipleRow: "isMultipleRow"
 };
 export const businessDays = 5;
 export const maxHoursPerWeek = 40;

@@ -22,7 +22,8 @@ const Scheduler = ({
   onItemClick,
   isLoading,
   isFullscreen,
-  titleAboveLeft
+  titleAboveLeft,
+  isMultipleRow
 }: SchedulerProps) => {
   const appConfig: Config = useMemo(
     () => ({
@@ -33,7 +34,6 @@ const Scheduler = ({
     }),
     [config]
   );
-
   const outsideWrapperRef = useRef<HTMLDivElement>(null);
   const [topBarWidth, setTopBarWidth] = useState(outsideWrapperRef.current?.clientWidth);
   const defaultStartDate = useMemo(() => dayjs(startDate), [startDate]);
@@ -72,6 +72,7 @@ const Scheduler = ({
               ref={outsideWrapperRef}>
               <StyledInnerWrapper>
                 <Calendar
+                  isMultipleRow={isMultipleRow}
                   data={data}
                   titleAboveLeft={titleAboveLeft}
                   onTileClick={onTileClick}
@@ -105,6 +106,7 @@ const Scheduler = ({
                 ref={outsideWrapperRef}>
                 <StyledInnerWrapper>
                   <Calendar
+                    isMultipleRow={isMultipleRow}
                     data={data}
                     titleAboveLeft={titleAboveLeft}
                     onTileClick={onTileClick}

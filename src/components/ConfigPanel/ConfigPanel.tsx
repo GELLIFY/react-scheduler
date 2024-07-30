@@ -23,7 +23,7 @@ const ConfigPanel: FC<ConfigPanelProps> = ({ values, onSubmit }) => {
 
     setInputValues((prev) => ({
       ...prev,
-      [name]: +inputValue
+      [name]: inputValue
     }));
   };
 
@@ -88,7 +88,8 @@ const ConfigPanel: FC<ConfigPanelProps> = ({ values, onSubmit }) => {
             value={inputValues.startDate ?? ""}
             type="date"
             onChange={handleDateChange}
-            title="When do you want to start your scheduler? Default: today"></StyledInput>
+            title="When do you want to start your scheduler? Default: today"
+          />
         </StyledInnerWrapper>
         <StyledInnerWrapper>
           <StyledLabel htmlFor={formFieldsIds.maxRecordsPerPage}>Records/page: </StyledLabel>
@@ -108,6 +109,14 @@ const ConfigPanel: FC<ConfigPanelProps> = ({ values, onSubmit }) => {
             id={formFieldsIds.isFullscreen}
             name={formFieldsIds.isFullscreen}
             checked={inputValues.isFullscreen}
+            type="checkbox"
+            onChange={handleChange}
+          />
+          <StyledLabel htmlFor={formFieldsIds.isMultipleRow}>is MultipleRows: </StyledLabel>
+          <StyledCheckbox
+            id={formFieldsIds.isMultipleRow}
+            name={formFieldsIds.isMultipleRow}
+            checked={inputValues.isMultipleRow}
             type="checkbox"
             onChange={handleChange}
           />

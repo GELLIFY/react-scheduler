@@ -5,6 +5,7 @@ export type LeftColumnItemProps = {
   item: SchedulerRowLabel;
   rows: number;
   onItemClick?: (data: SchedulerItemClickData) => void;
+  isMultipleRow?: boolean;
 };
 
 export type StyledTextProps = {
@@ -14,4 +15,5 @@ export type StyledTextProps = {
 export type StyledLeftColumnItemWrapperProps = {
   rows: number;
   clickable: boolean;
+  isMultipleRow?: boolean;
 };

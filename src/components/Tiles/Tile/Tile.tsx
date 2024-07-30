@@ -4,7 +4,13 @@ import { getDatesRange } from "@/utils/getDatesRange";
 import { getTileProperties } from "@/utils/getTileProperties";
 import { tileDefaultBgColor } from "@/constants";
 import { getTileTextColor } from "@/utils/getTileTextColor";
-import { StyledStickyWrapper, StyledText, StyledTextWrapper, StyledTileWrapper } from "./styles";
+import {
+  StyledDescription,
+  StyledStickyWrapper,
+  StyledText,
+  StyledTextWrapper,
+  StyledTileWrapper
+} from "./styles";
 import { TileProps } from "./types";
 
 const Tile: FC<TileProps> = ({ row, data, zoom, onTileClick }) => {
@@ -34,8 +40,8 @@ const Tile: FC<TileProps> = ({ row, data, zoom, onTileClick }) => {
       <StyledTextWrapper>
         <StyledStickyWrapper>
           <StyledText bold>{data.title}</StyledText>
-          {/* <StyledText>{projectId}</StyledText>*/}
-          {/*<StyledDescription>{data.description}</StyledDescription>*/}
+          <StyledText>{data.subtitle}</StyledText>
+          <StyledDescription>{data.description}</StyledDescription>
         </StyledStickyWrapper>
       </StyledTextWrapper>
     </StyledTileWrapper>

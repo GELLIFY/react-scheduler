@@ -17,7 +17,8 @@ const LeftColumn: FC<LeftColumnProps> = ({
   titleAboveLeft,
   searchInputValue,
   onSearchInputChange,
-  onItemClick
+  onItemClick,
+  isMultipleRow
 }) => {
   const [isInputFocused, setIsInputFocused] = useState(false);
   const { search } = useLanguage();
@@ -69,6 +70,7 @@ const LeftColumn: FC<LeftColumnProps> = ({
           key={item.id}
           rows={rows[index]}
           onItemClick={onItemClick}
+          isMultipleRow={isMultipleRow}
         />
       ))}
       {/*<PaginationButton*/}

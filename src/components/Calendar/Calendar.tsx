@@ -25,7 +25,8 @@ export const Calendar: FC<CalendarProps> = ({
   titleAboveLeft,
   onTileClick,
   onItemClick,
-  topBarWidth
+  topBarWidth,
+  isMultipleRow
 }) => {
   const [, /*tooltipData*/ setTooltipData] = useState<TooltipData>(initialTooltipData);
   const [filteredData, setFilteredData] = useState(data);
@@ -139,11 +140,13 @@ export const Calendar: FC<CalendarProps> = ({
         searchInputValue={searchPhrase}
         onSearchInputChange={handleSearch}
         onItemClick={onItemClick}
+        isMultipleRow={isMultipleRow}
       />
       <StyledInnerWrapper>
         <Header zoom={zoom} topBarWidth={topBarWidth} />
         {data.length ? (
           <Grid
+            isMultipleRow={isMultipleRow}
             data={page}
             zoom={zoom}
             rows={totalRowsPerPage}
