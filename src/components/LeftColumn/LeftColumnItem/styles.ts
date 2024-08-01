@@ -17,6 +17,8 @@ export const StyledWrapper = styled.div<StyledLeftColumnItemWrapperProps>`
   &:hover {
     background-color: ${({ theme }) => theme.colors.blue200};
   }
+  background-color: ${({ isEmpty }) =>
+    isEmpty ? theme.colors.transparentGray : theme.colors.white};
 `;
 
 export const StyledInnerWrapper = styled.div`

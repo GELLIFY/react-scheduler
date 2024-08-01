@@ -31,7 +31,8 @@ type ColorType =
   | "blue400"
   | "blue200"
   | "red400"
-  | "white";
+  | "white"
+  | "transparentGray";
 
 export type Theme = {
   colors: Record<ColorType, string>;
@@ -50,7 +51,8 @@ export const theme: DefaultTheme = {
     blue400: "#0A11EB",
     blue200: "#E6F3FF",
     red400: "#EF4444",
-    white: "#FFFFFF"
+    white: "#FFFFFF",
+    transparentGray: "#919EAB1F"
   }
 };
 

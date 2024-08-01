@@ -71,6 +71,7 @@ const LeftColumn: FC<LeftColumnProps> = ({
           rows={rows[index]}
           onItemClick={onItemClick}
           isMultipleRow={isMultipleRow}
+          isEmpty={item.data.length === 0}
         />
       ))}
       {/*<PaginationButton*/}

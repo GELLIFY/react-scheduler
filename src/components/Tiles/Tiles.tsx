@@ -12,6 +12,14 @@ const Tiles: FC<TilesProps> = ({ data, zoom, onTileClick, isMultipleRow }) => {
             ? Math.max(data[personIndex - 1].data.length, 1)
             : (data[personIndex - 1].data.length, 1);
         }
+        if (person.data.length === 0) {
+          /*TODO =>
+              if you want to get a different color
+              tile when you are not given for a person,
+              you can write a component here,
+              this is a work around.
+           */
+        }
         return person.data.map((projectsPerRow, rowIndex) =>
           projectsPerRow.map((project) => (
             <Tile
@@ -19,7 +27,8 @@ const Tiles: FC<TilesProps> = ({ data, zoom, onTileClick, isMultipleRow }) => {
               row={isMultipleRow ? rowIndex + rows : rows}
               data={project}
               zoom={zoom}
-              onTileClick={onTileClick}></Tile>
+              onTileClick={onTileClick}
+            />
           ))
         );
       })

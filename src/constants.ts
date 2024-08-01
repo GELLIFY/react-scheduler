@@ -49,3 +49,4 @@ export const buttonWeeksJump = 2;
 export const scrollWeeksJump = 4;
 export const minutesInHour = 60;
 export const tileDefaultBgColor = "rgb(114,141,226)";
+export const grayColor = "rgba(229, 232, 235, 1)";

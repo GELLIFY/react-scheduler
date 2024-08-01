@@ -72,7 +72,7 @@ function App() {
         isLoading={false}
         onTileClick={handleTileClick}
         onFilterData={handleFilterData}
-        config={{ zoom: 1, maxRecordsPerPage: maxRecordsPerPage, lang: "it" }}
+        config={{ zoom: 2, maxRecordsPerPage: maxRecordsPerPage, lang: "it" }}
         onItemClick={(data) => console.log("clicked: ", data)}
         isFullscreen={isFullscreen}
         titleAboveLeft={"Addetti"}

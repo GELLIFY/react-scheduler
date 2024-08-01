@@ -1,7 +1,14 @@
 import { ChangeEvent, FC, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import debounce from "lodash.debounce";
 import { useCalendar } from "@/context/CalendarProvider";
-import { Day, SchedulerData, SchedulerProjectData, TooltipData, ZoomLevel } from "@/types/global";
+import {
+  Day,
+  SchedulerData,
+  SchedulerProjectData,
+  SchedulerRow,
+  TooltipData,
+  ZoomLevel
+} from "@/types/global";
 import { getTooltipData } from "@/utils/getTooltipData";
 import { getDatesRange } from "@/utils/getDatesRange";
 import { usePagination } from "@/hooks/usePagination";
@@ -32,6 +39,7 @@ export const Calendar: FC<CalendarProps> = ({
   const [filteredData, setFilteredData] = useState(data);
   const [, /*isVisible*/ setIsVisible] = useState(false);
   const [searchPhrase, setSearchPhrase] = useState("");
+  const [isEmptyRow] = useState<string[]>([]);
   const {
     zoom,
     startDate,

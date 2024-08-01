@@ -8,7 +8,8 @@ const LeftColumnItem: FC<LeftColumnItemProps> = ({
   item,
   rows,
   onItemClick,
-  isMultipleRow
+  isMultipleRow,
+  isEmpty
 }) => {
   return (
     <StyledWrapper
@@ -16,7 +17,8 @@ const LeftColumnItem: FC<LeftColumnItemProps> = ({
       clickable={typeof onItemClick === "function"}
       rows={rows}
       onClick={() => onItemClick?.({ id, label: item })}
-      isMultipleRow={isMultipleRow}>
+      isMultipleRow={isMultipleRow}
+      isEmpty={isEmpty}>
       <StyledInnerWrapper>
         <StyledTextWrapper>
           <StyledText isMain>{upperFirst(item.title)}</StyledText>
