@@ -1,11 +1,11 @@
 {
-  "name": "@bitnoi.se/react-scheduler",
-  "version": "0.1.5",
+  "name": "@GELLIFY/react-scheduler",
+  "version": "0.1.6",
   "type": "module",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Bitnoise/react-scheduler"
+    "url": "git+https://github.com/GELLIFY/react-scheduler.git"
   },
   "keywords": [
     "scheduler",
@@ -16,8 +16,8 @@
     "calendar"
   ],
   "author": {
-    "name": "Bitnoise",
-    "url": "https://scheduler.bitnoise.pl/"
+    "name": "GELLIFY",
+    "url": "https://github.com/GELLIFY/"
   },
   "scripts": {
     "dev": "vite",
