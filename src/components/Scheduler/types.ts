@@ -21,7 +21,7 @@ export type SchedulerProps = {
   isMultipleRow?: boolean;
   isVisibleTooltip?: boolean;
   sectionMinute?: number;
-  viewPreviusButton?: boolean;
+  viewPreviousButton?: boolean;
   viewNextButton?: boolean;
 };
 

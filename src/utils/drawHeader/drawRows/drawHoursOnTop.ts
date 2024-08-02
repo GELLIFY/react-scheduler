@@ -30,7 +30,7 @@ export const drawHoursOnTop = (ctx: CanvasRenderingContext2D, startDate: Day) =>
       width,
       fillStyle: getBoxFillStyle(configBoxFill),
       height: 80,
-      textYPos: topRowTextYPos,
+      textYPos: topRowTextYPos + 10,
       label: ((hour < 10 ? "0" : "") + (hour).toString()) + ":00",
       font: fonts.hour
     });

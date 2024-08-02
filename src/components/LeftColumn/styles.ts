@@ -14,11 +14,11 @@ export const StyledWrapper = styled.div`
   z-index: 2;
 `;
 
-export const StyledLeftColumnHeader = styled.div`
+export const StyledLeftColumnHeader = styled.div<{ zoom?: number }>`
   padding-bottom: 4px;
   position: sticky;
   top: 0;
-  height: 90px;
+  height: ${({zoom}) => zoom == 2 ? 90 : 124}px;
   display: flex;
   flex-direction: column;
   justify-content: end;

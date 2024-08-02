@@ -1,5 +1,5 @@
 import { FC, useCallback, useEffect, useRef } from "react";
-import { headerHeight, screenWidthMultiplier, canvasHeaderWrapperId } from "@/constants";
+import {headerHeight, screenWidthMultiplier, canvasHeaderWrapperId, canvasHeaderHourWrapperId} from "@/constants";
 import { useCalendar } from "@/context/CalendarProvider";
 import { useLanguage } from "@/context/LocaleProvider";
 import { drawHeader } from "@/utils/drawHeader/drawHeader";
@@ -47,8 +47,7 @@ const Header: FC<HeaderProps> = ({ zoom, topBarWidth, sectionMinute}) => {
   return (
     <StyledOuterWrapper>
       {zoom == 2 ? <>
-        {/*{viewTopbar && <Topbar width={topBarWidth}/>}*/}
-        <StyledHoursWrapper id={canvasHeaderWrapperId}>
+        <StyledHoursWrapper id={canvasHeaderHourWrapperId}>
           <StyledCanvas ref={canvasRef} />
         </StyledHoursWrapper>
       </> : <>

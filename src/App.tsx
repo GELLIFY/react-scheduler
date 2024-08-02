@@ -17,7 +17,7 @@ function App() {
     isMultipleRow: false,
     isVisibleTooltip: false,
     sectionMinute: undefined,
-    viewPreviusButton: false,
+    viewPreviousButton: false,
     viewNextButton: false,
   });
 
@@ -30,7 +30,7 @@ function App() {
     isMultipleRow,
     isVisibleTooltip,
     sectionMinute,
-    viewPreviusButton,
+    viewPreviousButton,
     viewNextButton,
   } = values;
 
@@ -80,14 +80,14 @@ function App() {
         isLoading={false}
         onTileClick={handleTileClick}
         onFilterData={handleFilterData}
-        config={{ zoom: 2, maxRecordsPerPage: maxRecordsPerPage, lang: "it", isHandleScroll: false }}
+        config={{ zoom: 1, maxRecordsPerPage: maxRecordsPerPage, lang: "it", isHandleScroll: false }}
         onItemClick={(data) => console.log("clicked: ", data)}
         isFullscreen={isFullscreen}
         titleAboveLeft={"Addetti"}
         isMultipleRow={isMultipleRow}
         isVisibleTooltip={isVisibleTooltip}
         sectionMinute={sectionMinute}
-        viewPreviusButton={viewPreviusButton}
+        viewPreviousButton={viewPreviousButton}
         viewNextButton={viewNextButton}
       />
     </>

@@ -26,7 +26,7 @@ const Scheduler = ({
   isMultipleRow,
   isVisibleTooltip,
   sectionMinute,
-  viewPreviusButton,
+                     viewPreviousButton,
   viewNextButton,
 }: SchedulerProps) => {
   const appConfig: Config = useMemo(
@@ -84,7 +84,7 @@ const Scheduler = ({
                   sectionMinute={sectionMinute}
                   topBarWidth={topBarWidth ?? 0}
                   onItemClick={onItemClick}
-                  viewPreviusButton={viewPreviusButton}
+                  viewPreviousButton={viewPreviousButton}
                   viewNextButton={viewNextButton}
                 />
               </StyledInnerWrapper>
@@ -122,7 +122,7 @@ const Scheduler = ({
                     topBarWidth={topBarWidth ?? 0}
                     sectionMinute={sectionMinute}
                     onItemClick={onItemClick}
-                    viewPreviusButton={viewPreviusButton}
+                    viewPreviousButton={viewPreviousButton}
                     viewNextButton={viewNextButton}
                   />
                 </StyledInnerWrapper>

@@ -31,6 +31,7 @@ export const dayNumYOffset = 4.5;
 export const dayHourYoffset = 6;
 export const monthsInYear = 12;
 export const canvasHeaderWrapperId = "reactSchedulerCanvasHeaderWrapper";
+export const canvasHeaderHourWrapperId = "reactSchedulerCanvasHeaderHourWrapper";
 export const canvasWrapperId = "reactSchedulerCanvasWrapper";
 export const outsideWrapperId = prefixId;
 export const tileYOffset = 4;
@@ -44,7 +45,7 @@ export const formFieldsIds = {
   isFullscreen: "isFullscreen",
   isMultipleRow: "isMultipleRow",
   isVisibleTooltip: "isVisibleTooltip",
-  viewPreviusButton: "viewPreviusButton",
+  viewPreviousButton: "viewPreviousButton",
   viewNextButton: "viewNextButton",
 };
 export const businessDays = 5;

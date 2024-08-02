@@ -33,7 +33,7 @@ export const drawRow = (config: DrawRowConfig) => {
     const textXPos = x + width / 2 - ctx.measureText(label).width / 2;
     ctx.textBaseline = "middle";
     ctx.fillStyle = theme.colors.black;
-    ctx.fillText(label, textXPos, textYPos + 10);
+    ctx.fillText(label, textXPos, textYPos);
   }
   if (isBottomRow && fillStyle && topText && bottomText) {
     ctx.fillStyle = fillStyle;

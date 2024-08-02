@@ -19,8 +19,9 @@ const LeftColumn: FC<LeftColumnProps> = ({
   onSearchInputChange,
   onItemClick,
   isMultipleRow,
-    viewPreviusButton,
+    viewPreviousButton,
     viewNextButton,
+    zoom
 }) => {
   const [isInputFocused, setIsInputFocused] = useState(false);
   const { search } = useLanguage();
@@ -29,7 +30,7 @@ const LeftColumn: FC<LeftColumnProps> = ({
 
   return (
     <StyledWrapper>
-      <StyledLeftColumnHeader>
+      <StyledLeftColumnHeader zoom={zoom}>
         <div
           style={{
             fontFamily: "Josefin Sans",
@@ -56,7 +57,7 @@ const LeftColumn: FC<LeftColumnProps> = ({
             <Icon iconName="search" />
           </StyledInputWrapper>
         </div>
-        {viewPreviusButton && viewPreviusButton == undefined && <PaginationButton
+        {viewPreviousButton && viewPreviousButton == undefined && <PaginationButton
               intent="previous"
               isVisible={pageNum !== 0}
               onClick={onLoadPrevious}

@@ -132,11 +132,11 @@ const ConfigPanel: FC<ConfigPanelProps> = ({ values, onSubmit }) => {
           />
         </StyledInnerWrapper>
         <StyledInnerWrapper>
-          <StyledLabel htmlFor={formFieldsIds.viewPreviusButton}>viewPreviusButton: </StyledLabel>
+          <StyledLabel htmlFor={formFieldsIds.viewPreviousButton}>viewPreviusButton: </StyledLabel>
           <StyledCheckbox
-              id={formFieldsIds.viewPreviusButton}
-              name={formFieldsIds.viewPreviusButton}
-              checked={inputValues.viewPreviusButton}
+              id={formFieldsIds.viewPreviousButton}
+              name={formFieldsIds.viewPreviousButton}
+              checked={inputValues.viewPreviousButton}
               type="checkbox"
               onChange={handleChange}
           />

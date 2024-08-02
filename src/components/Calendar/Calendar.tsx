@@ -36,7 +36,7 @@ export const Calendar: FC<CalendarProps> = ({
   isMultipleRow,
   isVisibleTooltip,
   sectionMinute,
-  viewPreviusButton,
+  viewPreviousButton,
   viewNextButton,
 }) => {
   const [tooltipData, setTooltipData] = useState<TooltipData>(initialTooltipData);
@@ -154,7 +154,8 @@ export const Calendar: FC<CalendarProps> = ({
         onItemClick={onItemClick}
         isMultipleRow={isMultipleRow}
         viewNextButton={viewNextButton}
-        viewPreviusButton={viewPreviusButton}
+        viewPreviousButton={viewPreviousButton}
+        zoom={zoom}
       />
       <StyledInnerWrapper>
         <Header zoom={zoom} topBarWidth={topBarWidth} sectionMinute={sectionMinute ? sectionMinute : 15} />

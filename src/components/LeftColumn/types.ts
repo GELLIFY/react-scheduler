@@ -12,8 +12,9 @@ export type LeftColumnProps = {
   onItemClick?: (data: SchedulerItemClickData) => void;
   titleAboveLeft?: string;
   isMultipleRow?: boolean;
-  viewPreviusButton?: boolean;
+  viewPreviousButton?: boolean;
   viewNextButton?: boolean;
+  zoom?: number;
 };
 
 export type StyledInputWrapperProps = {

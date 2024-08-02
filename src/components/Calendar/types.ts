@@ -9,7 +9,7 @@ export type CalendarProps = {
   isVisibleTooltip?: boolean;
   isMultipleRow?: boolean;
   sectionMinute?: number;
-  viewPreviusButton?: boolean;
+  viewPreviousButton?: boolean;
   viewNextButton?: boolean;
 };
 
