@@ -32,7 +32,7 @@ const Tile: FC<TileProps> = ({ row, data, zoom, onTileClick, isEmptyRow }) => {
         top: `${y - 3}px`,
         backgroundColor: `${isEmptyRow ? grayColor : data.bgColor ?? tileDefaultBgColor}`,
         width: `${isEmptyRow ? "100%" : width}`,
-        marginLeft: `150px`,
+        marginLeft: zoom == 2 ? undefined : `150px`,
         border: `2px solid white`,
         color: getTileTextColor(data.bgColor ?? "white"),
         height: 55
@@ -40,7 +40,7 @@ const Tile: FC<TileProps> = ({ row, data, zoom, onTileClick, isEmptyRow }) => {
       onClick={() => onTileClick?.(data)}>
       <StyledTextWrapper>
         <StyledStickyWrapper>
-          <StyledText bold>{data.title}</StyledText>
+          <StyledText isOnlyTitle={!data.subtitle && !data.description} bold>{data.title}</StyledText>
           <StyledText>{data.subtitle}</StyledText>
           <StyledDescription>{data.description}</StyledDescription>
         </StyledStickyWrapper>

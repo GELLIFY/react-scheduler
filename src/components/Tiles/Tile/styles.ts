@@ -30,9 +30,11 @@ export const StyledText = styled.p<StyledTextProps>`
   ${truncate}
   display: inline;
   font-weight: ${({ bold }) => (bold ? "600" : "400")};
+  font-size: ${({ isOnlyTitle }) => (isOnlyTitle ? "14px" : undefined)};
+  font-family: Josefin Sans;
   &:first-child {
     &::after {
-      content: "|";
+      content: ${({ isOnlyTitle }) => (isOnlyTitle ? undefined : "|")};
       margin: 0 3px;
     }
   }
@@ -41,6 +43,8 @@ export const StyledText = styled.p<StyledTextProps>`
 export const StyledDescription = styled.p`
   ${marginPaddingReset}
   ${truncate}
+  font-family: Josefin Sans;
+
 `;
 
 export const StyledStickyWrapper = styled.div`

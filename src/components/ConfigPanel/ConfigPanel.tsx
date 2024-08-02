@@ -112,13 +112,43 @@ const ConfigPanel: FC<ConfigPanelProps> = ({ values, onSubmit }) => {
             type="checkbox"
             onChange={handleChange}
           />
-          <StyledLabel htmlFor={formFieldsIds.isMultipleRow}>is MultipleRows: </StyledLabel>
+          <StyledLabel htmlFor={formFieldsIds.isMultipleRow}>isMultipleRows: </StyledLabel>
           <StyledCheckbox
             id={formFieldsIds.isMultipleRow}
             name={formFieldsIds.isMultipleRow}
             checked={inputValues.isMultipleRow}
             type="checkbox"
             onChange={handleChange}
+          />
+        </StyledInnerWrapper>
+        <StyledInnerWrapper>
+          <StyledLabel htmlFor={formFieldsIds.isVisibleTooltip}>isVisibleTooltip: </StyledLabel>
+          <StyledCheckbox
+              id={formFieldsIds.isVisibleTooltip}
+              name={formFieldsIds.isVisibleTooltip}
+              checked={inputValues.isVisibleTooltip}
+              type="checkbox"
+              onChange={handleChange}
+          />
+        </StyledInnerWrapper>
+        <StyledInnerWrapper>
+          <StyledLabel htmlFor={formFieldsIds.viewPreviusButton}>viewPreviusButton: </StyledLabel>
+          <StyledCheckbox
+              id={formFieldsIds.viewPreviusButton}
+              name={formFieldsIds.viewPreviusButton}
+              checked={inputValues.viewPreviusButton}
+              type="checkbox"
+              onChange={handleChange}
+          />
+        </StyledInnerWrapper>
+        <StyledInnerWrapper>
+          <StyledLabel htmlFor={formFieldsIds.viewNextButton}>viewNextButton: </StyledLabel>
+          <StyledCheckbox
+              id={formFieldsIds.viewNextButton}
+              name={formFieldsIds.viewNextButton}
+              checked={inputValues.viewNextButton}
+              type="checkbox"
+              onChange={handleChange}
           />
         </StyledInnerWrapper>
         {isExpanded ? (

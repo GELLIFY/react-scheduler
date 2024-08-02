@@ -5,10 +5,10 @@ import { useLanguage } from "@/context/LocaleProvider";
 import { drawHeader } from "@/utils/drawHeader/drawHeader";
 import { resizeCanvas } from "@/utils/resizeCanvas";
 import { HeaderProps } from "./types";
-import { StyledCanvas, StyledOuterWrapper, StyledWrapper } from "./styles";
+import {StyledCanvas, StyledHoursWrapper, StyledOuterWrapper, StyledWrapper} from "./styles";
 import Topbar from "./Topbar";
 
-const Header: FC<HeaderProps> = ({ zoom /* topBarWidth*/ }) => {
+const Header: FC<HeaderProps> = ({ zoom, topBarWidth, sectionMinute}) => {
   const { week } = useLanguage();
   const { date, cols, dayOfYear, startDate } = useCalendar();
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -16,10 +16,10 @@ const Header: FC<HeaderProps> = ({ zoom /* topBarWidth*/ }) => {
   const handleResize = useCallback(
     (ctx: CanvasRenderingContext2D) => {
       const width = window.innerWidth * screenWidthMultiplier;
-      const height = headerHeight + 1;
+      const height = headerHeight + (zoom != 2 ? 1 : 10);
       resizeCanvas(ctx, width, height);
 
-      drawHeader(ctx, zoom, cols, startDate, week, dayOfYear);
+      drawHeader(ctx, zoom, cols, startDate, week, dayOfYear, sectionMinute);
     },
     [cols, dayOfYear, startDate, week, zoom]
   );
@@ -46,10 +46,18 @@ const Header: FC<HeaderProps> = ({ zoom /* topBarWidth*/ }) => {
 
   return (
     <StyledOuterWrapper>
-      {/*<Topbar width={topBarWidth} />*/}
-      <StyledWrapper id={canvasHeaderWrapperId}>
-        <StyledCanvas ref={canvasRef} />
-      </StyledWrapper>
+      {zoom == 2 ? <>
+        {/*{viewTopbar && <Topbar width={topBarWidth}/>}*/}
+        <StyledHoursWrapper id={canvasHeaderWrapperId}>
+          <StyledCanvas ref={canvasRef} />
+        </StyledHoursWrapper>
+      </> : <>
+        <Topbar width={topBarWidth}/>
+        <StyledWrapper id={canvasHeaderWrapperId}>
+          <StyledCanvas ref={canvasRef} />
+        </StyledWrapper>
+      </>
+      }
     </StyledOuterWrapper>
   );
 };

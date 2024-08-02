@@ -12,8 +12,8 @@ export const getTileProperties = (
   zoom: number
 ): TileProperties => {
   const y = row * boxHeight + tileYOffset;
-  const parsedResourceStartDate = dayjs(resourceStartDate).hour(0).minute(0);
-  const parsedResourceEndDate = dayjs(resourceEndDate).hour(23).minute(59);
+  const parsedResourceStartDate = zoom == 2 ? dayjs(resourceStartDate) : dayjs(resourceStartDate).hour(0).minute(0);
+  const parsedResourceEndDate = zoom == 2 ? dayjs(resourceEndDate) : dayjs(resourceEndDate).hour(23).minute(59);
 
   return {
     ...getTileXAndWidth(

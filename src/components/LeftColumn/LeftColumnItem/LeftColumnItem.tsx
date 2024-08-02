@@ -22,9 +22,7 @@ const LeftColumnItem: FC<LeftColumnItemProps> = ({
       <StyledInnerWrapper>
         <StyledTextWrapper>
           <StyledText isMain>{upperFirst(item.title)}</StyledText>
-          <StyledText isMain={false}>
-            {"8:00 - 12:00" /*TODO CHANGE DATE RANGE WITH TILE LENHGT */}
-          </StyledText>
+          <StyledText isMain={false}>{item.subtitle}</StyledText>
         </StyledTextWrapper>
       </StyledInnerWrapper>
     </StyledWrapper>

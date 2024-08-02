@@ -18,7 +18,9 @@ const LeftColumn: FC<LeftColumnProps> = ({
   searchInputValue,
   onSearchInputChange,
   onItemClick,
-  isMultipleRow
+  isMultipleRow,
+    viewPreviusButton,
+    viewNextButton,
 }) => {
   const [isInputFocused, setIsInputFocused] = useState(false);
   const { search } = useLanguage();
@@ -54,14 +56,14 @@ const LeftColumn: FC<LeftColumnProps> = ({
             <Icon iconName="search" />
           </StyledInputWrapper>
         </div>
-        {/*<PaginationButton*/}
-        {/*  intent="previous"*/}
-        {/*  isVisible={pageNum !== 0}*/}
-        {/*  onClick={onLoadPrevious}*/}
-        {/*  icon={<Icon iconName="arrowUp" width="16" height="16" />}*/}
-        {/*  pageNum={pageNum}*/}
-        {/*  pagesAmount={pagesAmount}*/}
-        {/*/>*/}
+        {viewPreviusButton && viewPreviusButton == undefined && <PaginationButton
+              intent="previous"
+              isVisible={pageNum !== 0}
+              onClick={onLoadPrevious}
+              icon={<Icon iconName="arrowUp" width="16" height="16"/>}
+              pageNum={pageNum}
+              pagesAmount={pagesAmount}
+          />}
       </StyledLeftColumnHeader>
       {data.map((item, index) => (
         <LeftColumnItem
@@ -74,14 +76,14 @@ const LeftColumn: FC<LeftColumnProps> = ({
           isEmpty={item.data.length === 0}
         />
       ))}
-      {/*<PaginationButton*/}
-      {/*  intent="next"*/}
-      {/*  isVisible={pageNum !== pagesAmount - 1}*/}
-      {/*  onClick={onLoadNext}*/}
-      {/*  icon={<Icon iconName="arrowDown" width="16" height="16" />}*/}
-      {/*  pageNum={pageNum}*/}
-      {/*  pagesAmount={pagesAmount}*/}
-      {/*/>*/}
+        { viewNextButton && viewNextButton == undefined && <PaginationButton
+            intent="next"
+            isVisible={pageNum !== pagesAmount - 1}
+            onClick={onLoadNext}
+            icon={<Icon iconName="arrowDown" width="16" height="16"/>}
+            pageNum={pageNum}
+            pagesAmount={pagesAmount}
+        />}
     </StyledWrapper>
   );
 };

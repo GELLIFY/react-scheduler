@@ -50,7 +50,7 @@ const Grid = forwardRef<HTMLDivElement, GridProps>(function Grid(
   useEffect(() => {
     if (!refRight.current) return;
     const observerRight = new IntersectionObserver((e) =>
-      e[0].isIntersecting ? handleScrollNext() : null
+      e[0].isIntersecting && handleScrollNext? handleScrollNext() : null
     );
     observerRight.observe(refRight.current);
 
@@ -59,13 +59,14 @@ const Grid = forwardRef<HTMLDivElement, GridProps>(function Grid(
 
   useEffect(() => {
     if (!refLeft.current) return;
-    const observerLeft = new IntersectionObserver(
-      (e) => (e[0].isIntersecting ? handleScrollPrev() : null),
-      { rootMargin: `0px 0px 0px -${leftColumnWidth}px` }
-    );
-    observerLeft.observe(refLeft.current);
-
-    return () => observerLeft.disconnect();
+    if (handleScrollPrev) {
+      const observerLeft = new IntersectionObserver(
+          (e) => (e[0].isIntersecting ? handleScrollPrev() : null),
+          {rootMargin: `0px 0px 0px -${leftColumnWidth}px`}
+      );
+      observerLeft.observe(refLeft.current);
+      return () => observerLeft.disconnect();
+    }
   }, [handleScrollPrev]);
 
   return (

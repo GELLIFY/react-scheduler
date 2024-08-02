@@ -5,9 +5,9 @@ import { ParsedDatesRange } from "@/utils/getDatesRange";
 
 export type CalendarContextType = {
   handleGoNext: () => void;
-  handleScrollNext: () => void;
+  handleScrollNext?: () => void;
   handleGoPrev: () => void;
-  handleScrollPrev: () => void;
+  handleScrollPrev?: () => void;
   handleGoToday: () => void;
   zoomIn: () => void;
   zoomOut: () => void;

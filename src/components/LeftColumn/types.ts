@@ -12,6 +12,8 @@ export type LeftColumnProps = {
   onItemClick?: (data: SchedulerItemClickData) => void;
   titleAboveLeft?: string;
   isMultipleRow?: boolean;
+  viewPreviusButton?: boolean;
+  viewNextButton?: boolean;
 };
 
 export type StyledInputWrapperProps = {

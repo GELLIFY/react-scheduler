@@ -14,7 +14,8 @@ export const drawHeader = (
   cols: number,
   startDate: Day,
   weekLabel: string,
-  dayOfYear: number
+  dayOfYear: number,
+  sectionMinute: number,
 ) => {
   if (zoom === 0) {
     drawYearsOnTop(ctx, startDate, dayOfYear);
@@ -22,7 +23,7 @@ export const drawHeader = (
     drawWeeksOnBottom(ctx, cols, startDate, weekLabel);
   } else if (zoom === 2) {
     drawHoursOnTop(ctx, startDate);
-    drawMinutesOnBottom(ctx, cols, startDate);
+    drawMinutesOnBottom(ctx, cols, startDate, sectionMinute);
   } else {
     drawMonthsOnTop(ctx, startDate);
     drawWeeksInMiddle(ctx, startDate, weekLabel);

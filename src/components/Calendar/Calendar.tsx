@@ -33,11 +33,15 @@ export const Calendar: FC<CalendarProps> = ({
   onTileClick,
   onItemClick,
   topBarWidth,
-  isMultipleRow
+  isMultipleRow,
+  isVisibleTooltip,
+  sectionMinute,
+  viewPreviusButton,
+  viewNextButton,
 }) => {
-  const [, /*tooltipData*/ setTooltipData] = useState<TooltipData>(initialTooltipData);
+  const [tooltipData, setTooltipData] = useState<TooltipData>(initialTooltipData);
   const [filteredData, setFilteredData] = useState(data);
-  const [, /*isVisible*/ setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const [searchPhrase, setSearchPhrase] = useState("");
   const [isEmptyRow] = useState<string[]>([]);
   const {
@@ -149,9 +153,11 @@ export const Calendar: FC<CalendarProps> = ({
         onSearchInputChange={handleSearch}
         onItemClick={onItemClick}
         isMultipleRow={isMultipleRow}
+        viewNextButton={viewNextButton}
+        viewPreviusButton={viewPreviusButton}
       />
       <StyledInnerWrapper>
-        <Header zoom={zoom} topBarWidth={topBarWidth} />
+        <Header zoom={zoom} topBarWidth={topBarWidth} sectionMinute={sectionMinute ? sectionMinute : 15} />
         {data.length ? (
           <Grid
             isMultipleRow={isMultipleRow}
@@ -164,10 +170,10 @@ export const Calendar: FC<CalendarProps> = ({
         ) : (
           <EmptyBox />
         )}
-        {/*TODO ADD A CUSTOM TOOLTIP COMPONENT*/}
-        {/*{isVisible && tooltipData?.resourceIndex > -1 && (*/}
-        {/*  <Tooltip tooltipData={tooltipData} zoom={zoom} />*/}
-        {/*)}*/}
+
+        {(isVisibleTooltip || isVisibleTooltip == undefined) && tooltipData?.resourceIndex > -1 && (
+          <Tooltip tooltipData={tooltipData} zoom={zoom} />
+        )}
       </StyledInnerWrapper>
     </StyledOuterWrapper>
   );

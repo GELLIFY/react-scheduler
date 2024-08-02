@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { weekWidth, boxHeight, dayWidth } from "@/constants";
+import {weekWidth, boxHeight, dayWidth, minutesWidth} from "@/constants";
 import { Day, Coords, SchedulerProjectData, TooltipData, ZoomLevel } from "@/types/global";
 import { getOccupancy } from "./getOccupancy";
 
@@ -11,7 +11,7 @@ export const getTooltipData = (
   zoom: ZoomLevel,
   includeTakenHoursOnWeekendsInDayView = false
 ): TooltipData => {
-  const currBoxWidth = zoom === 0 ? weekWidth : dayWidth;
+  const currBoxWidth = zoom === 0 ? weekWidth : zoom === 2 ? minutesWidth : dayWidth;
   const column = Math.ceil(cursorPosition.x / currBoxWidth);
   const focusedDate = dayjs(`${startDate.year}-${startDate.month + 1}-${startDate.dayOfMonth}`).add(
     column - 1,

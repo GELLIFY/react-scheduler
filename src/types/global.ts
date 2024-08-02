@@ -19,6 +19,12 @@ export type Config = {
    * Language code: "en" | "it"
    */
   lang?: LangCodes;
+
+  /**
+   * Default: true
+   */
+  isHandleScroll?: boolean;
+
   isFiltersButtonVisible?: boolean;
   maxRecordsPerPage?: number;
   /**
@@ -144,6 +150,10 @@ export type ConfigFormValues = {
   isFullscreen: boolean;
   startDate?: string;
   isMultipleRow?: boolean;
+  isVisibleTooltip?: boolean;
+  sectionMinute?: number;
+  viewPreviusButton?: boolean;
+  viewNextButton?: boolean;
 };
 
 export type Coords = {

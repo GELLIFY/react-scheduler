@@ -14,6 +14,7 @@ import { getCols } from "@/utils/getCols";
 import {
   buttonWeeksJump,
   dayWidth,
+  minutesWidth,
   outsideWrapperId,
   screenWidthMultiplier,
   scrollWeeksJump,
@@ -39,7 +40,7 @@ const CalendarProvider = ({
   onFilterData,
   onClearFilterData
 }: CalendarProviderProps) => {
-  const { zoom: configZoom, maxRecordsPerPage = 50 } = config;
+  const { zoom: configZoom, maxRecordsPerPage = 50, isHandleScroll } = config;
   const [zoom, setZoom] = useState<ZoomLevel>(configZoom);
   const [date, setDate] = useState(dayjs());
   const [isInitialized, setIsInitialized] = useState(false);
@@ -60,7 +61,7 @@ const CalendarProvider = ({
         case "back":
           return outsideWrapper.current?.scrollTo({
             behavior,
-            left: zoom === 0 ? weekWidth * screenWidthMultiplier : dayWidth * screenWidthMultiplier
+            left: zoom === 0 ? weekWidth * screenWidthMultiplier : zoom === 2 ? minutesWidth * screenWidthMultiplier : dayWidth * screenWidthMultiplier
           });
 
         case "forward":
@@ -73,6 +74,11 @@ const CalendarProvider = ({
                     screenWidthMultiplier +
                     scrollForwardOffsetModifier) *
                     weekWidth
+                : zoom === 2 ? window.innerWidth +
+                      (cols / screenWidthMultiplier -
+                          screenWidthMultiplier +
+                          scrollForwardOffsetModifier) *
+                      minutesWidth
                 : window.innerWidth +
                   (cols / screenWidthMultiplier -
                     screenWidthMultiplier +
@@ -204,9 +210,9 @@ const CalendarProvider = ({
         data,
         config,
         handleGoNext,
-        handleScrollNext,
+        handleScrollNext: isHandleScroll || isHandleScroll == undefined ? handleScrollNext : undefined,
         handleGoPrev,
-        handleScrollPrev,
+        handleScrollPrev: isHandleScroll || isHandleScroll == undefined ? handleScrollPrev : undefined,
         handleGoToday,
         zoomIn,
         zoomOut,

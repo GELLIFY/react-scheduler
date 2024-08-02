@@ -19,6 +19,10 @@ export type SchedulerProps = {
   isFullscreen?: boolean;
   titleAboveLeft?: string;
   isMultipleRow?: boolean;
+  isVisibleTooltip?: boolean;
+  sectionMinute?: number;
+  viewPreviusButton?: boolean;
+  viewNextButton?: boolean;
 };
 
 export type StyledOutsideWrapperProps = {

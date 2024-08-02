@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { headerHeight } from "@/constants";
+import {headerHeight, headerHoursHeight} from "@/constants";
 
 export const StyledOuterWrapper = styled.div`
   position: sticky;
@@ -9,6 +9,11 @@ export const StyledOuterWrapper = styled.div`
 
 export const StyledWrapper = styled.div`
   height: ${headerHeight}px;
+  display: block;
+`;
+
+export const StyledHoursWrapper = styled.div`
+  height: ${headerHoursHeight}px;
   display: block;
 `;
 

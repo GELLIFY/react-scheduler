@@ -52,8 +52,8 @@ export const generateProjects = (
         endDate,
         occupancy: Math.ceil(Math.random() * secondsInWorkDay),
         title,
-        subtitle: getRandomWords(),
-        description: getRandomWords(amountOfDscWords),
+        // subtitle: getRandomWords(),
+        // description: getRandomWords(amountOfDscWords),
         bgColor
       });
     }

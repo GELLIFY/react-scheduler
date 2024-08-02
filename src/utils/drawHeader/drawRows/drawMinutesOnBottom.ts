@@ -1,13 +1,14 @@
 import dayjs from "dayjs";
 import {Day, TextAndBoxStyleConfig} from "@/types/global";
 import {
+  dayHourYoffset,
   dayNameYoffset,
   dayNumYOffset,
   fonts,
   headerDayHeight,
-  headerHeight,
+  headerHeight, headerHoursHeight,
   headerMonthHeight,
-  headerWeekHeight,
+  headerWeekHeight, minutesHeight,
   minutesWidth
 } from "@/constants";
 import { drawRow } from "@/utils/drawRow";
@@ -18,17 +19,17 @@ import { parseDay } from "@/utils/dates";
 export const drawMinutesOnBottom = (
   ctx: CanvasRenderingContext2D,
   cols: number,
-  startDate: Day
+  startDate: Day,
+  sectionMinute: number,
 ) => {
-  const dayNameYPos = headerHeight - headerDayHeight / dayNameYoffset;
-  const dayNumYPos = headerHeight - headerDayHeight / dayNumYOffset;
+  const dayNameYPos = headerHeight - headerHoursHeight / dayHourYoffset;
   const yPos = headerMonthHeight + headerWeekHeight;
   let xPos = 0;
 
   for (let i = 0; i < cols; i++) {
     const day = parseDay(
       dayjs(`${startDate.year}-${startDate.month + 1}-${startDate.dayOfMonth}`).add(
-        i * 15,
+        i * sectionMinute,
         "minute"
       )
     );
@@ -44,18 +45,18 @@ export const drawMinutesOnBottom = (
       x: xPos,
       y: yPos,
       width: minutesWidth,
-      height: 80,
+      height: minutesHeight,
       isBottomRow: true,
       fillStyle: getBoxFillStyle(configBoxFill),
       topText: {
         y: dayNameYPos,
         label:
-          (day.hours < 10 ? "0" : "") + day.hours + ":" + (day.minutes === 0 ? "00" : day.minutes),
-        font: fonts.bottomRow.name,
+          ((day.hours) < 10 ? "0" : "") + (day.hours != 24 ? day.hours : "00") + ":" + (day.minutes === 0 ? "00" : day.minutes),
+        font: fonts.bottomRow.minute,
         color: getTextStyle({ isCurrent: day.isCurrentDay, isBusinessDay: day.isBusinessDay })
       },
       bottomText: {
-        y: dayNumYPos,
+        y: 0,
         label: "",
         font: "600 14px Josefin Sans",
         color: getTextStyle({

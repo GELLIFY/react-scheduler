@@ -55,6 +55,7 @@
   },
   "dependencies": {
     "@fontsource/josefin-sans": "^5.0.20",
+    "@mantine/hooks": "^7.11.2",
     "dayjs": "1.11.7",
     "lodash.debounce": "4.0.8",
     "path": "0.12.7",

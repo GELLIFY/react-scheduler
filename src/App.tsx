@@ -2,7 +2,7 @@ import { useCallback, useMemo, useState } from "react";
 import dayjs from "dayjs";
 import { createMockData } from "./mock/appMock";
 import { ParsedDatesRange } from "./utils/getDatesRange";
-import { ConfigFormValues, SchedulerProjectData } from "./types/global";
+import {ConfigFormValues, SchedulerProjectData} from "./types/global";
 import ConfigPanel from "./components/ConfigPanel";
 import { Scheduler } from ".";
 
@@ -14,7 +14,11 @@ function App() {
     startDate: undefined,
     maxRecordsPerPage: 50,
     isFullscreen: false,
-    isMultipleRow: false
+    isMultipleRow: false,
+    isVisibleTooltip: false,
+    sectionMinute: undefined,
+    viewPreviusButton: false,
+    viewNextButton: false,
   });
 
   const {
@@ -23,7 +27,11 @@ function App() {
     yearsCovered,
     isFullscreen,
     maxRecordsPerPage,
-    isMultipleRow
+    isMultipleRow,
+    isVisibleTooltip,
+    sectionMinute,
+    viewPreviusButton,
+    viewNextButton,
   } = values;
 
   const mocked = useMemo(
@@ -72,11 +80,15 @@ function App() {
         isLoading={false}
         onTileClick={handleTileClick}
         onFilterData={handleFilterData}
-        config={{ zoom: 2, maxRecordsPerPage: maxRecordsPerPage, lang: "it" }}
+        config={{ zoom: 2, maxRecordsPerPage: maxRecordsPerPage, lang: "it", isHandleScroll: false }}
         onItemClick={(data) => console.log("clicked: ", data)}
         isFullscreen={isFullscreen}
         titleAboveLeft={"Addetti"}
         isMultipleRow={isMultipleRow}
+        isVisibleTooltip={isVisibleTooltip}
+        sectionMinute={sectionMinute}
+        viewPreviusButton={viewPreviusButton}
+        viewNextButton={viewNextButton}
       />
     </>
   );

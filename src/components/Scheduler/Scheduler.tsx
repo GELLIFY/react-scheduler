@@ -23,7 +23,11 @@ const Scheduler = ({
   isLoading,
   isFullscreen,
   titleAboveLeft,
-  isMultipleRow
+  isMultipleRow,
+  isVisibleTooltip,
+  sectionMinute,
+  viewPreviusButton,
+  viewNextButton,
 }: SchedulerProps) => {
   const appConfig: Config = useMemo(
     () => ({
@@ -67,17 +71,21 @@ const Scheduler = ({
             onFilterData={onFilterData}
             onClearFilterData={onClearFilterData}>
             <StyledOutsideWrapper
-              showScroll={!!data.length}
+              showScroll={true}
               id={outsideWrapperId}
               ref={outsideWrapperRef}>
               <StyledInnerWrapper>
                 <Calendar
                   isMultipleRow={isMultipleRow}
                   data={data}
+                  isVisibleTooltip={isVisibleTooltip}
                   titleAboveLeft={titleAboveLeft}
                   onTileClick={onTileClick}
+                  sectionMinute={sectionMinute}
                   topBarWidth={topBarWidth ?? 0}
                   onItemClick={onItemClick}
+                  viewPreviusButton={viewPreviusButton}
+                  viewNextButton={viewNextButton}
                 />
               </StyledInnerWrapper>
             </StyledOutsideWrapper>
@@ -87,7 +95,7 @@ const Scheduler = ({
     </>
   ) : (
     // <StyledSchedulerFrame>
-    <div style={{ margin: "10rem 10rem", position: "relative", width: "80vw", height: "80vh" }}>
+    <div style={{ flex: "auto", margin: "10rem 10rem", position: "relative", width: "80vw", height: "80vh" }}>
       <>
         <GlobalStyle />
         <ThemeProvider theme={theme}>
@@ -108,10 +116,14 @@ const Scheduler = ({
                   <Calendar
                     isMultipleRow={isMultipleRow}
                     data={data}
+                    isVisibleTooltip={isVisibleTooltip}
                     titleAboveLeft={titleAboveLeft}
                     onTileClick={onTileClick}
                     topBarWidth={topBarWidth ?? 0}
+                    sectionMinute={sectionMinute}
                     onItemClick={onItemClick}
+                    viewPreviusButton={viewPreviusButton}
+                    viewNextButton={viewNextButton}
                   />
                 </StyledInnerWrapper>
               </StyledOutsideWrapper>

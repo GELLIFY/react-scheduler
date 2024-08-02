@@ -6,7 +6,11 @@ export type CalendarProps = {
   titleAboveLeft?: string;
   onTileClick?: (data: SchedulerProjectData) => void;
   onItemClick?: (data: SchedulerItemClickData) => void;
+  isVisibleTooltip?: boolean;
   isMultipleRow?: boolean;
+  sectionMinute?: number;
+  viewPreviusButton?: boolean;
+  viewNextButton?: boolean;
 };
 
 export type StyledSpanProps = {
